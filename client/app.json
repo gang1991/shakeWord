@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+    "pages/search/search",
+    "pages/upload/upload"
+  ],
+  "tabBar": {
+    "backgroundColor": "#333",
+    "color": "#ccc",
+    "list": [
+      {
+        "selectedIconPath": "pages/image/首页 (1).png",
+        "iconPath": "pages/image/首页.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/image/预约 (1).png",
+        "iconPath": "pages/image/预约.png",
+        "pagePath": "pages/index/index",
+        "text": "约课"
+      },
+      {
+        "selectedIconPath": "pages/image/上传 (1).png",
+        "iconPath": "pages/image/上传.png",
+        "pagePath": "pages/upload/upload",
+        "text": "上传"
+      },
+      {
+        "selectedIconPath": "pages/image/我 的 (1).png",
+        "iconPath": "pages/image/我 的.png",
+        "pagePath": "pages/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,14 @@
+<view class="input">
+<input placeholder="单词/老师姓名"/>
+</view>
+<view>
+<view class="search">最近搜索</view>
+<view class="box">
+<text class="name">Elena</text>
+<text class="name">Casey</text>
+<text class="name">Eden</text>
+<text class="name">Elena</text>
+<text class="name">Casey</text>
+<text class="name">Eden</text>
+</view>
+</view>

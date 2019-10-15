@@ -1,0 +1,15 @@
+{
+	"client": "client/",
+	"svr": "server/",
+	"miniprogramRoot": "client/",
+	"qcloudRoot": "server/",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx31305934276da6cc",
+	"projectname": "shakeWord",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"compileType": "miniprogram",
+	"condition": {}
+}

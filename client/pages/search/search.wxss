@@ -1,0 +1,26 @@
+/* client/pages/search/search.wxss */
+.name{
+  padding:16rpx;
+  background: #ccc;
+  color: #fff;
+  margin-right:30rpx;
+  border:1px solid;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  margin-top:10rpx;
+}
+.box{
+  display:flex;
+  flex-wrap: wrap;
+  margin-left: 20rpx;
+}
+.search{
+  font-size: 28rpx;
+  margin-top:20rpx;
+  margin-left: 20rpx;
+}
+.input{
+  font-size:26rpx;
+  border:1px solid #ccc;
+  margin:20rpx;
+}

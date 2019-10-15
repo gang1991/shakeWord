@@ -1,0 +1,27 @@
+<!--pages/upload/upload.wxml-->
+<!-- <view wx:if="{{isUpLoad}}"> -->
+<camera timeoutCallback = "stopRecord" device-position="front" wx:if="{{isVideo}}"></camera>
+<view>
+<view class="box" wx:if="{{isVideo}}">
+<view class="img">
+<image class="play" src="../image/开始.png" bindtap="startRecord" wx:if="{{show}}"></image>
+<image class="play" src="../image/暂停.png" bindtap="stopRecord" wx:if="{{!show}}"></image>
+</view>
+<image class="dui" src="../image/dui.png" wx:if="{{hide}}" bindtap="showVideo"></image>
+<view class="progress">
+<progress percent="100" active duration="300"/></view>
+</view>
+</view>
+<view wx:if="{{!isVideo}}" class="video">
+<video src="{{videoSrc}}" autoplay="true" loop controls="false"></video>
+<view>
+<button class="btn" type="warn" bindtap="save"> 下一步 </button>
+</view>
+</view>
+<!-- </view> -->
+
+<!-- <view class="upload" wx:if="{{!isUpLoad}}">
+<view>标题</view>
+<textarea bindblur="bindTextAreaBlur" auto-height placeholder="把你的想法写出来吧" />
+</view> -->
+
