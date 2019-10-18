@@ -10,11 +10,11 @@ Page({
         takeSession: false,
         userInfo:'',
         requestResult: '',
-        index: 0,
+        currentIndex: 0,
         videoArr:[
-          { id: 1, value: 'http://pz987tt4d.bkt.clouddn.com/1570867508136434.mp4', heartNum: 123, bool: true},
-          { id: 2, value: 'http://pz987tt4d.bkt.clouddn.com/1570867419815774.mp4', heartNum: 123, bool: false},
-          { id: 3, value: 'http://pz987tt4d.bkt.clouddn.com/1570867487606845.mp4', heartNum: 123, bool: false}
+          { id: 1, value: 'http://pz987tt4d.bkt.clouddn.com/1570867508136434.mp4', heartNum: 123, bool: true, isHeart: false},
+          { id: 2, value: 'http://pz987tt4d.bkt.clouddn.com/1570867419815774.mp4', heartNum: 123, bool: false, isHeart: false},
+          { id: 3, value: 'http://pz987tt4d.bkt.clouddn.com/1570867487606845.mp4', heartNum: 123, bool: false, isHeart: false}
       //     { id: 4, value: 'http://pz987tt4d.bkt.clouddn.com/1570867430655098.mp4', heartNum: 123, bool: false},
       //     { id: 5, value: 'http://pz987tt4d.bkt.clouddn.com/1570867435515532.mp4', heartNum: 123, bool: false},
       // { id: 6, value: 'http://pz987tt4d.bkt.clouddn.com/1570867447146630.mp4', heartNum: 123, bool: false},
@@ -55,6 +55,28 @@ Page({
   videoPlay: function() {
     console.log()
   },
+  // 点赞
+  heart: function(e) {
+    var heartNum = e.currentTarget.dataset.heartnum
+    var add = e.currentTarget.dataset.add
+    var newArr = this.data.videoArr
+    for (var j = 0; j <newArr.length; j++) {
+      if (newArr[j].id == heartNum) {
+        if(add == 1) {
+          newArr[j].heartNum += 1
+          newArr[j].isHeart = true
+        } else {
+          newArr[j].heartNum -= 1
+          newArr[j].isHeart = false
+        }
+      }
+    }
+    console.log(newArr)
+    this.setData({
+      videoArr: newArr
+    })
+    console.log(this.data.videoArr)
+  },
   onTabItemTap: function (options) {
     console.log(1234567)
     if (wx.getStorageSync('videoSrc')) {
@@ -69,17 +91,29 @@ Page({
   },
   swiperChange: function(e) {
     var num = Number(e.detail.current)
-    this.videoNext = wx.createVideoContext('video' + (num + 1))
-    this.videoPre = wx.createVideoContext('video' + num)
-    // this.videoContext.pause()
+    console.log(num)
+    if (num > this.data.currentIndex) {
+      this.videoNext = wx.createVideoContext('video' + num)
+      this.videoPre = wx.createVideoContext('video' + (num-1))
+      this.setData({
+        currentIndex: num
+      })
+    } else {
+      this.videoNext = wx.createVideoContext('video' + num)
+      this.videoPre = wx.createVideoContext('video' + this.data.currentIndex)
+      this.setData({
+        currentIndex: num
+      })
+    }
     var newVideoArr = this.data.videoArr
     for (var i = 0; i < newVideoArr.length; i++) {
-      newVideoArr[i]. bool = false
+      newVideoArr[i].bool = false
       if (e.detail.current == i) {
         newVideoArr[i].bool = true
       }
     }
     this.videoPre.pause()
+    this.videoPre.seek(0)
     this.videoNext.play()
     this.setData({
       videoArr: newVideoArr

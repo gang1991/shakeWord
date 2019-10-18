@@ -1,5 +1,5 @@
 <!--pages/upload/upload.wxml-->
-<!-- <view wx:if="{{isUpLoad}}"> -->
+<view wx:if="{{isUpLoad}}" class="videoBox">
 <camera timeoutCallback = "stopRecord" device-position="front" wx:if="{{isVideo}}"></camera>
 <view>
 <view class="box" wx:if="{{isVideo}}">
@@ -8,8 +8,8 @@
 <image class="play" src="../image/暂停.png" bindtap="stopRecord" wx:if="{{!show}}"></image>
 </view>
 <image class="dui" src="../image/dui.png" wx:if="{{hide}}" bindtap="showVideo"></image>
-<view class="progress">
-<progress percent="100" active duration="300"/></view>
+<view class="progress" wx:if="{{isProgress}}">
+<progress percent="{{percentNum}}" active duration="{{durationNum}}"/></view>
 </view>
 </view>
 <view wx:if="{{!isVideo}}" class="video">
@@ -18,10 +18,15 @@
 <button class="btn" type="warn" bindtap="save"> 下一步 </button>
 </view>
 </view>
-<!-- </view> -->
+</view>
 
-<!-- <view class="upload" wx:if="{{!isUpLoad}}">
-<view>标题</view>
-<textarea bindblur="bindTextAreaBlur" auto-height placeholder="把你的想法写出来吧" />
-</view> -->
+<view class="upload" wx:if="{{!isUpLoad}}">
+<!-- <view class="title">标题</view> -->
+<input type="text" placeholder="标题" class="inp" placeholder-style="color:#fff;"></input>
+<textarea placeholder="写出你的话题" class="textarea"placeholder-style="color:#fff;"></textarea>
+<view class="btnBox">
+<button class="btn2">草稿</button>
+<button type="warn" class="btn1">发布</button>
+</view>
+</view>
 

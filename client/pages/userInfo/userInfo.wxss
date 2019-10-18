@@ -1,0 +1,119 @@
+/* client/pages/userInfo/userInfo.wxss */
+page{
+  height:100%;
+}
+.userInfo{
+  height:100%;
+  background:#333;
+}
+.name_info{
+  display: flex;
+  color:#fff;
+  align-items: center;
+  padding-top:20rpx;
+}
+.head{
+  width:100rpx;
+  height: 100rpx;
+  border-radius:50%;
+  margin-left:20rpx;
+  margin-right:40rpx;
+}
+.head image{
+  width:100%;
+  height:100%;
+}
+.teach_info{
+  display: flex;
+  color: #fff;
+  margin-top:20rpx;
+  justify-content: space-between;
+  padding-left:40rpx;
+  padding-right:40rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.about_page{
+  margin: 0 10px;
+}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    color: #fff;
+    margin-top:30rpx;
+    font-size: 16px;
+}
+.swiper-tab-item{
+    width: 30%; 
+    color:#fff;
+}
+.active{
+    color:#F65959;
+    /* border-bottom: 4rpx solid #F65959; */
+    font-size: 16px;
+    font-weight: bold;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.scroll_box{
+  background: #333;
+}
+.scroll_box .video{
+  display: inline-block;
+  width:50%;
+  height:300rpx;
+  position: relative;
+  font-size:0;
+}
+.scroll_box .video video{
+  width:100%;
+  height:100%;
+}
+.mask{
+ width:100%;
+ height:100%; 
+ position: absolute;
+ top:0;
+ left:0;
+ z-index:99;
+}
+.play_video{
+  height: 100%;
+}
+.play_video video{
+  width:100%;
+  height:100%;
+  position: relative;
+}
+.prev{
+  width:60rpx;
+  height:60rpx;
+  position: absolute;
+  left:20rpx;
+  top:20rpx;
+  background:#fff;
+}
+.prev image{
+  width:100%;
+  height:100%;
+  z-index: 99;
+  position: relative;
+}

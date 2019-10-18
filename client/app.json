@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/userInfo/userInfo",
+    
+    "pages/upload/upload",
     "pages/addCgi/addCgi",
-    "pages/search/search",
-    "pages/upload/upload"
+    "pages/search/search" 
   ],
   "tabBar": {
     "backgroundColor": "#333",
@@ -30,7 +32,7 @@
       {
         "selectedIconPath": "pages/image/我 的 (1).png",
         "iconPath": "pages/image/我 的.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/userInfo/userInfo",
         "text": "我的"
       }
     ]

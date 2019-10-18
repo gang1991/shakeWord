@@ -9,6 +9,9 @@ Page({
     hide: false,
     isUpLoad: true,
     isVideo: true,
+    isProgress: false,
+    durationNum: 300,
+    percentNum:100,
     src: '',
     videoSrc: ''
   },
@@ -18,14 +21,11 @@ Page({
     })
   },
   startRecord() {
-    this.setData({
-      show: false,
-      hide: false
-    })
     this.ctx.startRecord({
       timeoutCallback: (res) => {
         this.setData({
           show: true,
+          hide: true,
           src: res.tempThumbPath,
           videoSrc: res.tempVideoPath
         })
@@ -33,6 +33,11 @@ Page({
       },
       success: () => {
         console.log('startRecord')
+        this.setData({
+          show: false,
+          hide: false,
+          isProgress: true
+        })
       }
     })
   },
@@ -52,7 +57,10 @@ Page({
     })
   },
   save: function(e) {
-    wx.setStorageSync('videoSrc', this.data.videoSrc)
+    this.setData({
+      isUpLoad: false
+    })
+    // wx.setStorageSync('videoSrc', this.data.videoSrc)
   },
   /**
    * 生命周期函数--监听页面加载

@@ -51,7 +51,7 @@
 </view>
 <swiper vertical="true" bindchange="videoPlay" bindchange="swiperChange">
 <swiper-item wx:for="{{videoArr}}" wx:key="index">
-<video bindplay="videoPlay1" id="video{{item.id}}" autoplay="{{item.bool}}" loop src="{{item.value}}"></video>
+<video bindplay="videoPlay1" id="video{{index}}" autoplay="{{item.bool}}" loop src="{{item.value}}"></video>
 <view>
 <view class="right">
 <view class="headBox">
@@ -59,7 +59,8 @@
 <image class="add" src="../image/add.png"></image>
 </view>
 <view>
-<image class="heart" src="../image/heartW.png" bindtap="heart(item.id)"></image>
+<image class="heart" hidden="{{isHeart}}" data-add="1" src="../image/heartW.png" data-heartnum="{{item.id}}" bindtap="heart"></image>
+<image class="heart" hidden="{{!isHeart}}"  data-add="2" src="../image/heartR.png" data-heartnum="{{item.id}}" bindtap="heart"></image>
 <view class="num">{{item.heartNum}}</view>
 </view>
 </view>
