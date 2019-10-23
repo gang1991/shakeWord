@@ -1,0 +1,14 @@
+<!--client/pages/book/book.wxml-->
+<!-- <text>client/pages/book/book.wxml</text> -->
+
+<view class="book">课程预约</view>
+<view class="section">
+  <view class="section__title">选择时间</view>
+  <picker mode="multiSelector" bindtap='pickerTap' bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}:{{multiArray[2][multiIndex[2]]}}
+    </view>
+  </picker>
+</view>
+<button bindtap="doBookClass">约课</button>
+

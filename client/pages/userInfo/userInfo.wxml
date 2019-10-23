@@ -80,5 +80,5 @@
 <view class="prev" bindtap="prev">
 <image src="../image/prev.png"></image>
 </view>
-<video src="{{videoSrc}}" autoplay="true" loop></video>
+<video src="{{videoSrc}}" autoplay="{{auto}}" loop></video>
 </view>

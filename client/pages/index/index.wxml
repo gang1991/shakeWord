@@ -59,9 +59,13 @@
 <image class="add" src="../image/add.png"></image>
 </view>
 <view>
-<image class="heart" hidden="{{isHeart}}" data-add="1" src="../image/heartW.png" data-heartnum="{{item.id}}" bindtap="heart"></image>
-<image class="heart" hidden="{{!isHeart}}"  data-add="2" src="../image/heartR.png" data-heartnum="{{item.id}}" bindtap="heart"></image>
+<image class="heart" wx:if="{{item.isHeart}}" data-add="1" src="../image/heartW.png" data-heartnum="{{index}}" bindtap="heart"></image>
+<image class="heart" wx:if="{{!item.isHeart}}" data-add="2" src="../image/heartR.png" data-heartnum="{{index}}" bindtap="heart"></image>
 <view class="num">{{item.heartNum}}</view>
+<view>
+<image class="heart" data-add="1" src="../image/预约 (1).png" ></image>
+<view class="num">约课</view>
+</view>
 </view>
 </view>
 </view>

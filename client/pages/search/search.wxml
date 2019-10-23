@@ -1,5 +1,14 @@
 <view class="input">
-<input placeholder="单词/老师姓名"/>
+<image src="../image/prev.png" bindtap="out"></image>
+<view class="search-box">
+<input placeholder="单词/老师姓名" bindinput="inp" bindfocus="inp" bindblur="blur" class="inp" value="{{word}}"/>
+<text>搜索</text>
+</view>
+<view wx:if="{{isSelect}}" class="word-box">
+<view wx:for="{{wordData}}" wx:key="{{index}}" data-word="{{item}}" class="word-item" bindtap="wordTap">
+{{item}}
+</view>
+</view>
 </view>
 <view>
 <view class="search">最近搜索</view>

@@ -1,46 +1,33 @@
-// client/pages/userInfo/userInfo.js
+// client/pages/validation/validation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentTab:0,
-    videoSrc:'',
-    show:true,
-    auto: true
+    code:''
+  },
+  getCode: function(){
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.setStorage({
+            key: "code",
+            data: res.code
+          })
+          wx.switchTab({
+            url: '../index/index'
+          })
+        }
+      }
+    })
+  },
 
-  },
-  // 点击视频
-  play_video: function(e){
-    console.log(e)
-    this.setData({
-      videoSrc: e.currentTarget.dataset.src,
-      show:false,
-      auto:true
-    })
-  },
-  prev: function() {
-    this.setData({
-      show:true
-    })
-  },
-  //点击切换
-  clickTab: function (e) {
-    var that = this;
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current,
-      })
-    }
-    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

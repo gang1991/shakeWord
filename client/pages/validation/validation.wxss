@@ -1,0 +1,32 @@
+/* client/pages/validation/validation.wxss */
+page{
+  height:100%;
+  background-color: rgba(0,0,0,0.2);
+}
+.validation{
+  width:500rpx;
+  height:300rpx;
+  background:#fff;
+  margin:300rpx auto;
+  padding:0 30rpx;
+  padding-top:30rpx;
+  border-radius: 10rpx;
+}
+.title{
+  font-size:36rpx;
+}
+.auth{
+  margin-top:30rpx;
+  font-size:28rpx;
+  padding-bottom:20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.name{
+  font-size:28rpx;
+  margin-top:20rpx;
+}
+.btn{
+  font-size:28rpx;
+  text-align: right;
+  margin-top:28rpx;
+}

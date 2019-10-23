@@ -1,6 +1,7 @@
 <!--pages/upload/upload.wxml-->
-<view wx:if="{{isUpLoad}}" class="videoBox">
-<camera timeoutCallback = "stopRecord" device-position="front" wx:if="{{isVideo}}"></camera>
+<!-- <view wx:if="{{isTeacher}}" class="videoBox"> -->
+<view wx:if="{{isUpLoad && isVideo}}" class="videoBox1">
+<camera timeoutCallback = "stopRecord" device-position="front" class="camera1" wx:if="{{isVideo}}"></camera>
 <view>
 <view class="box" wx:if="{{isVideo}}">
 <view class="img">
@@ -8,8 +9,12 @@
 <image class="play" src="../image/暂停.png" bindtap="stopRecord" wx:if="{{!show}}"></image>
 </view>
 <image class="dui" src="../image/dui.png" wx:if="{{hide}}" bindtap="showVideo"></image>
+<!-- <view class="progress" wx:if="{{!isProgress}}"> -->
+<!-- <progress percent="{{percentNum}}" active duration="{{durationNum}}"/> -->
 <view class="progress" wx:if="{{isProgress}}">
-<progress percent="{{percentNum}}" active duration="{{durationNum}}"/></view>
+<view class="progress_green" style="width:{{width}}"></view>
+</view>
+</view>
 </view>
 </view>
 <view wx:if="{{!isVideo}}" class="video">
@@ -18,7 +23,7 @@
 <button class="btn" type="warn" bindtap="save"> 下一步 </button>
 </view>
 </view>
-</view>
+<!-- </view> -->
 
 <view class="upload" wx:if="{{!isUpLoad}}">
 <!-- <view class="title">标题</view> -->
@@ -29,4 +34,16 @@
 <button type="warn" class="btn1">发布</button>
 </view>
 </view>
+<!-- </view> -->
+<view wx:if="{{!isTeacher}}" class="student">
+<view wx:if="{{isStudentVideo}}">
+<view style="margin:20rpx;text-align:center">请选择录制视频素材</view>
+<view style="margin-left:30rpx;" bindtap="student_video">学习</view>
+</view>
+<view>
+</view>
+<view wx:if="{{!isTeacher}}">
+<camera timeoutCallback = "stopRecord" device-position="front" wx:if="{{isVideo}}"></camera>
+</view>
 
+</view>

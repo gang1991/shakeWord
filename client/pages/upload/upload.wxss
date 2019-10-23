@@ -6,11 +6,11 @@ page {
     justify-content: flex-start;
     height:100%;
 }
-.videoBox{
+.videoBox,.videoBox1{
   width:100%;
   height:100%;
 }
-camera{
+.camera1{
   width:100%;
   height:100%;
   position: relative;
@@ -18,7 +18,7 @@ camera{
 .box{
   width:100%;
   position:absolute;
-  bottom:10rpx;
+  bottom:20rpx;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -108,4 +108,28 @@ camera{
   width:100%;
   display: flex;
   justify-content: space-between;
+}
+.progress{
+  position: fixed;
+  width: 100%;
+  bottom:0;
+  height: 10rpx;
+  z-index: 99;
+  background:#fff;
+  left:0;
+}
+.progress_green{
+  height:100%;
+  background: greenyellow;
+}
+.student{
+  height: 100%;
+  background: #333;
+  color:#fff;
+  font-size: 28rpx;
+}
+.student camera{
+  width:100%;
+  height:500rpx;
+  position: relative;
 }

@@ -1,0 +1,22 @@
+<!--client/pages/login/login.wxml-->
+<view>
+<view class="form">
+<input  type="text" data-name="name" placeholder="请输入名字/name" placeholder-style="font-size:24rpx" value="{{name}}" wx:if="{{!show}}" bindinput="inputChange"></input>
+<input type="text" placeholder="请输入正确手机号/phone" placeholder-style="font-size:24rpx" data-name="text" value="{{text}}" bindinput="inputChange"></input>
+<input type="password" placeholder="请输入密码/password" placeholder-style="font-size:24rpx" data-name="password" value="{{password}}" bindinput="inputChange"></input>
+<view wx:if="{{!show}}">
+ <radio-group class="radio-group" bindchange="radioChange">
+<radio class="radio" wx:key="teacher" value="teacher">
+<text>teacher</text>
+</radio>
+<radio class="radio"  wx:key="student" value="student">
+<text>student</text>
+</radio>
+</radio-group>
+</view>
+<view class="registered" bindtap="registered" wx:if="{{show}}">立即注册</view>
+<view>
+<button type="primary" bindtap="submit" class="btn">{{buttonText}}</button>
+</view>
+</view>
+</view>

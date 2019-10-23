@@ -3,7 +3,8 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://123456.qcloud.la';
+// var host = 'https://123456.qcloud.la';
+var host = 'http://172.23.100.207:8080'
 
 var config = {
 
@@ -12,8 +13,13 @@ var config = {
         host,
 
         // 登录地址，用于建立会话
-        loginUrl: `${host}/weapp/login`,
-
+        loginUrl: `${host}/api/userLogin/login`,
+        signUp: `${host}/api/userLogin/signUp`,
+        searchVedio: `${host}/api/userLogin/searchVedio`,
+        search: `${host}/api/dict/search`,
+        loginWithCode: `${host}/api/userLogin/loginWithCode`,
+        
+        
         // 测试的请求地址，用于测试会话
         requestUrl: `${host}/weapp/user`,
 

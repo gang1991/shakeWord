@@ -1,0 +1,30 @@
+/* client/pages/login/login.wxss */
+.page{
+  height: 100%;
+}
+.form{
+  font-size:28rpx;
+  width:500rpx;
+  margin:300rpx auto;
+
+}
+.registered{
+  color:blue;
+  margin-top:20rpx;
+  text-align: right;
+  font-size:24rpx;
+}
+input{
+  border:1px solid #ccc;
+  margin-bottom: 20rpx;
+  padding-left:10rpx;
+}
+.btn{
+  margin-top: 50rpx;
+}
+.radio-group{
+  margin-top:30rpx;
+}
+.radio{
+margin-right:30rpx;
+}

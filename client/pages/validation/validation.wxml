@@ -1,0 +1,10 @@
+<!--client/pages/validation/validation.wxml-->
+<view class="validation">
+<view class="title">微信授权</view>
+<view class="auth">抖词申请获取以下权限:</view>
+<view class="name">获取你的公开信息(昵称、头像等)</view>
+<view class="btn">
+<text>拒绝</text>
+<text style="color:green;margin-left:40rpx;" bindtap="getCode">允许</text>
+</view>
+</view>

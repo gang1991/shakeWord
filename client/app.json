@@ -1,11 +1,15 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userInfo/userInfo",
+    "pages/validation/validation",
+    "pages/search/search",
+    "pages/login/login",
+   
     
+    "pages/index/index",
     "pages/upload/upload",
-    "pages/addCgi/addCgi",
-    "pages/search/search" 
+    "pages/book/book",
+    "pages/userInfo/userInfo",
+    "pages/addCgi/addCgi"
   ],
   "tabBar": {
     "backgroundColor": "#333",
@@ -43,5 +47,6 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

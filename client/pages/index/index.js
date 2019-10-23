@@ -61,13 +61,13 @@ Page({
     var add = e.currentTarget.dataset.add
     var newArr = this.data.videoArr
     for (var j = 0; j <newArr.length; j++) {
-      if (newArr[j].id == heartNum) {
-        if(add == 1) {
-          newArr[j].heartNum += 1
-          newArr[j].isHeart = true
+      if (j == heartNum) {
+        if (newArr[j].isHeart) {
+        newArr[j].heartNum = newArr[j].isHeart ? newArr[j].heartNum + 1 : newArr[j].heartNum + 1
+        newArr[j].isHeart = !newArr[j].isHeart
         } else {
           newArr[j].heartNum -= 1
-          newArr[j].isHeart = false
+          newArr[j].isHeart = !newArr[j].isHeart
         }
       }
     }
@@ -123,67 +123,29 @@ Page({
   videoPlay1: function(e) {
     console.log(e)
   },
-  // handletouchmove: function (event) {
-  //   // console.log(event)
-  //   if (this.data.flag !== 0) {
-  //     return
-  //   }
-  //   let currentX = event.touches[0].pageX;
-  //   let currentY = event.touches[0].pageY;
-  //   let tx = currentX - this.data.lastX;
-  //   let ty = currentY - this.data.lastY;
-  //   let video = "";
-  //   //左右方向滑动
-  //   if (Math.abs(tx) < Math.abs(ty)) {
-  //     if (ty < 0) {
-  //       this.setData({
-  //         index: this.data.index + 1
-  //       })
-  //       if(this.data.index >= this.data.videoArr.length) {
-  //         this.setData({
-  //           index: 0
-  //         })
-  //       }
-  //       video = this.data.videoArr[this.data.index];
-
-  //     }
-  //     else if (ty > 0) {
-  //       this.setData({
-  //         index: this.data.index - 1
-  //       })
-  //       if (this.data.index < 0) {
-  //         this.setData({
-  //           index: this.data.videoArr.length - 1
-  //         })
-  //       }
-  //       video = this.data.videoArr[this.data.index];
-  //     }
-
-  //   }
-
-  //   //将当前坐标进行保存以进行下一次计算
-  //   this.data.lastX = currentX;
-  //   this.data.lastY = currentY;
-  //   this.setData({
-  //     video: video,
-  //   });
-  // },
-
-  // handletouchstart: function (event) {
-  //   // console.log(event)
-  //   this.data.lastX = event.touches[0].pageX;
-  //   this.data.lastY = event.touches[0].pageY;
-  // },
-  // handletouchend: function (event) {
-  //   this.data.flag = 0
-  //   this.setData({
-  //     text: "没有滑动"
-  //   });
-  // },
   search: function(event) {
     wx.redirectTo({
       url: '../search/search'
     })
+  },
+  onShow: function() {
+    this.setData({
+      currentIndex: 0,
+      videoArr: [
+        { id: 1, value: 'http://pz987tt4d.bkt.clouddn.com/1570867508136434.mp4', heartNum: 123, bool: true, isHeart: false },
+        { id: 2, value: 'http://pz987tt4d.bkt.clouddn.com/1570867419815774.mp4', heartNum: 123, bool: false, isHeart: false },
+        { id: 3, value: 'http://pz987tt4d.bkt.clouddn.com/1570867487606845.mp4', heartNum: 123, bool: false, isHeart: false }]
+    })
+    
+  },
+  onHide: function() {
+    this.setData({
+      videoArr: []
+    })
+  },
+  onUnload: function() {
+    console.log(1234567)
+    
   },
     // 用户登录示例
     bindGetUserInfo: function () {
@@ -231,15 +193,34 @@ Page({
         })
         this.doRequest()
     },
-
-    doRequest: function () {
-        util.showBusy('请求中...')
+    onLoad: function(e) {
+      console.log(112345678)
+      // var url = config.service.searchVedio
+      // this.doRequest(url, {})
+      wx.getSetting({
+        success(res) {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res.userInfo)
+                console.log(res)
+              }
+            })
+          }
+        }
+      })
+      
+    },
+    doRequest: function (url, data) {
+        // util.showBusy('请求中...')
         var that = this
         var options = {
-            url: config.service.requestUrl,
+            url: url,
             login: true,
+            data:data,
             success (result) {
-                util.showSuccess('请求成功完成')
+                // util.showSuccess('请求成功完成')
                 console.log('request success', result)
                 that.setData({
                     requestResult: JSON.stringify(result.data)

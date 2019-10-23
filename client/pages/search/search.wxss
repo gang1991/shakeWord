@@ -1,4 +1,8 @@
 /* client/pages/search/search.wxss */
+page{
+  margin:0;
+  padding:0;
+}
 .name{
   padding:16rpx;
   background: #ccc;
@@ -19,8 +23,53 @@
   margin-top:20rpx;
   margin-left: 20rpx;
 }
-.input{
+.inp{
   font-size:26rpx;
-  border:1px solid #ccc;
+  /* border:1px solid #ccc; */
+  padding-left:10rpx;
+  height:40rpx;
+  flex-grow: 1;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  /* width:100%;
+  margin-right:20rpx; */
+}
+.input{
   margin:20rpx;
+  font-size:26rpx;
+  position: relative;
+  
+}
+.word-box{
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  position: absolute;
+  top:136rpx;
+  background:#fff;
+  width:100%;
+}
+.word-item{
+  height:40rpx;
+  line-height: 40rpx;
+  padding-left:10rpx;
+}
+.search-box{
+  display: flex;
+  justify-content: space-between;
+}
+.search-box text{
+  width:90rpx;
+  height:49rpx;
+  line-height: 49rpx;
+  background: red;
+  color:#fff;
+  text-align: center;
+  border-radius:10rpx;
+}
+.input image{
+  width:60rpx;
+  height:60rpx;
+  margin-bottom:20rpx;
 }
